@@ -129,7 +129,9 @@ async function handleRequest(
 
   const start = performance.now();
   try {
-    const data = await agent.handler(body, traceId);
+    const apiKey =
+      (req.headers["x-anthropic-api-key"] as string) || undefined;
+    const data = await agent.handler(body, traceId, apiKey);
     const duration_ms = Math.round(performance.now() - start);
 
     layers.push({

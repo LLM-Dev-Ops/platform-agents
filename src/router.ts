@@ -5,7 +5,8 @@ import { handleRiskScore } from "./agents/risk-score";
 
 export type AgentHandler = (
   body: Record<string, unknown>,
-  traceId?: string
+  traceId?: string,
+  apiKey?: string
 ) => Promise<Record<string, unknown>>;
 
 interface AgentRoute {
